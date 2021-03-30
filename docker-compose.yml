@@ -1,0 +1,13 @@
+version: "3"
+
+services:
+  webapp:
+    build:
+      context: .devcontainer
+      dockerfile: Dockerfile
+      args:
+        # Update 'VARIANT' to pick a Node version: 10, 12, 14
+        VARIANT: 14
+    command: sleep infinity
+    volumes:
+      - ./:/workspace
