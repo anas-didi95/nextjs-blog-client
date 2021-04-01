@@ -3,10 +3,11 @@ import path from "path"
 import matter from "gray-matter"
 import remark from "remark"
 import html from "remark-html"
+import { TPost } from "../src/utils/types"
 
 const postsDirectory = path.join(process.cwd(), "posts")
 
-export function getSortedPostsData() {
+export function getSortedPostsData(): TPost[] {
   // Get file names under /posts
   const fileNames = fs.readdirSync(postsDirectory)
   const allPostsData = fileNames.map((fileName) => {
