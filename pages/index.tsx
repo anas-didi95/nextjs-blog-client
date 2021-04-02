@@ -18,8 +18,16 @@ const IndexPage: React.FC<{ allPostsData: TPost[] }> = ({ allPostsData }) => (
           <p className="title is-4">Anas Juwaidi Bin Mohd Jeffry</p>
           <p className="subtitle is-6">Software Engineer</p>
         </div>
-        <div className="column is-1">1</div>
-        <div className="column is-3">3</div>
+        <div className="column is-1">
+          <div style={{ display: "flex", height: "75vh" }}>
+            <div style={{ flex: 1, height: "75vh" }}></div>
+            <div className="divider is-vertical">~</div>
+            <div style={{ flex: 1, height: "75vh", }}></div>
+          </div>
+        </div>
+        <div className="column is-3">
+
+        </div>
         <div className="column is-2" />
       </div>
     </div>
