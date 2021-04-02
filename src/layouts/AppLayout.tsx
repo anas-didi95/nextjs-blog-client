@@ -7,7 +7,7 @@ const AppLayout: React.FC<{ children: ReactNode }> = ({ children }) => (
       <title>Anas Juwaidi's Blog</title>
       <meta name="viewport" content="initial-scale=1.0, width=device-width" />
     </Head>
-    <main>{children}</main>
+    <main className="section">{children}</main>
   </>
 )
 
