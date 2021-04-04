@@ -8,8 +8,8 @@ import { TPost } from "../src/utils/types"
 const postsDirectory = path.join(process.cwd(), "posts")
 
 function getExcerpt(file, options) {
-  let excerpt: string = file.content.split('\n').slice(0, 2).join(' ')
-  file.excerpt = excerpt.split(' ').slice(0, 30).join(' ') + "..."
+  let excerpt: string = file.content.split("\n").slice(0, 2).join(" ")
+  file.excerpt = excerpt.split(" ").slice(0, 30).join(" ") + "..."
   return excerpt
 }
 
