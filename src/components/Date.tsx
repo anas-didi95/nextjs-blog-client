@@ -2,7 +2,7 @@ import { parseISO, format } from "date-fns"
 
 const Date: React.FC<{ dateString: string }> = ({ dateString }) => {
   const date = parseISO(dateString)
-  return <time dateTime={dateString}>{format(date, "LLLL d, yyyy")}</time>
+  return <time dateTime={dateString}>{format(date, "yyyy, LLLL d")}</time>
 }
 
 export default Date
