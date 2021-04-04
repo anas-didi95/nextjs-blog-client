@@ -12,7 +12,8 @@ const PostList: React.FC<{ posts: TPost[] }> = ({ posts }) => (
         </p>
         <a className="title">{post.title}</a>
         <p className="mt-4 mb-3">
-          {/*An Essay on Typography by Eric Gill takes the reader back to the year 1930. The year when a conflict between two worlds came to its term. The machines of the industrial world finally took over the handicrafts.*/}</p>
+          {post.excerpt}
+        </p>
         <a>Read</a>
       </div>
 

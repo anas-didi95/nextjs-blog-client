@@ -53,7 +53,7 @@ export default IndexPage
 
 export const getStaticProps: GetStaticProps = async (): Promise<{ props: { posts: TPost[] } }> => {
   const posts = getSortedPostsData()
-  console.log("posts", posts)
+
   return {
     props: {
       posts,
