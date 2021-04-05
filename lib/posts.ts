@@ -30,8 +30,9 @@ export function getSortedPostsData(): TPost[] {
     // Combine the data with the id
     return {
       id,
-      excerpt: matterResult.excerpt ?? "NOT FOUND",
+      excerpt: matterResult.excerpt,
       ...(matterResult.data as { date: string; title: string }),
+      contentHtml: ""
     }
   })
 
@@ -56,12 +57,12 @@ export function getAllPostIds() {
   })
 }
 
-export async function getPostData(id: string) {
+export async function getPostData(id: string): Promise<TPost> {
   const fullPath = path.join(postsDirectory, `${id}.md`)
   const fileContents = fs.readFileSync(fullPath, "utf8")
 
   // Use gray-matter to parse the post metadata section
-  const matterResult = matter(fileContents)
+  const matterResult = matter(fileContents, { excerpt: getExcerpt })
 
   // Use remark to convert markdown into HTML string
   const processedContent = await remark()
@@ -74,5 +75,6 @@ export async function getPostData(id: string) {
     id,
     contentHtml,
     ...(matterResult.data as { date: string; title: string }),
+    excerpt: ""
   }
 }

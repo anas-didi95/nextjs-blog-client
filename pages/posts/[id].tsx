@@ -1,19 +1,20 @@
+import { GetStaticPaths, GetStaticProps } from "next"
 import React from "react"
+import { getAllPostIds, getPostData } from "../../lib/posts"
 import AppLayout from "../../src/layouts/AppLayout"
+import { TPost } from "../../src/utils/types"
 
-const PostPage: React.FC<{}> = () => (
+const PostPage: React.FC<{ post: TPost }> = ({ post }) => (
   <AppLayout>
     <div className="container">
       <div className="columns">
         <div className="column" />
         <div className="column is-6">
-          <p className="title has-text-centered">Humane Typography in the Digital Age</p>
+          <p className="title has-text-centered">{post.title}</p>
           <br />
-          <div>
-            <p>
-              An Essay on Typography by Eric Gill takes the reader back to the year 1930. The year when a conflict between two worlds came to its term. The machines of the industrial world finally took over the handicrafts.
-          </p>
-          </div>
+          <div className="content" dangerouslySetInnerHTML={{ __html: post.contentHtml }} />
+          <br />
+          <p className="is-italic">Published {post.date}</p>
         </div>
         <div className="column" />
       </div>
@@ -22,3 +23,22 @@ const PostPage: React.FC<{}> = () => (
 )
 
 export default PostPage
+
+export const getStaticPaths: GetStaticPaths = async () => {
+  const paths = getAllPostIds()
+
+  return {
+    paths,
+    fallback: false,
+  }
+}
+
+export const getStaticProps: GetStaticProps = async ({ params }): Promise<{ props: { post: TPost } }> => {
+  const post = await getPostData(params.id as string)
+
+  return {
+    props: {
+      post,
+    },
+  }
+}
