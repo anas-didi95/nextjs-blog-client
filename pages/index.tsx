@@ -1,5 +1,4 @@
 import { GetStaticProps } from "next"
-import Link from "next/link"
 import React from "react"
 import { getSortedPostsData } from "../lib/posts"
 import { TPost } from "../src/utils/types"
@@ -57,7 +56,7 @@ const IndexPage: React.FC<{ posts: TPost[] }> = ({ posts }) => (
         <div className="column">
           <PostList posts={posts} />
         </div>
-        <div className="column is-1" />
+        <div className="column is-2" />
       </div>
     </div>
   </AppLayout>
