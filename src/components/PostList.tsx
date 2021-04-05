@@ -1,3 +1,4 @@
+import Link from "next/link"
 import React from "react"
 import { TPost } from "../utils/types"
 import Date from "./Date"
@@ -11,13 +12,17 @@ const PostList: React.FC<{ posts: TPost[] }> = ({ posts }) => (
             <Date dateString={post.date} />
           </span>
           &nbsp;
-          <a className="ml-2 has-text-weight-semibold has-text-info">
+          <span className="ml-2 has-text-weight-semibold has-text-info">
             TYPOGRAPGY
-          </a>
+          </span>
         </p>
-        <a className="title">{post.title}</a>
+        <Link href={`/posts/${post.id}`}>
+          <a href="#" className="title">{post.title}</a>
+        </Link>
         <p className="mt-4 mb-3">{post.excerpt}</p>
-        <a>Read</a>
+        <Link href={`/posts/${post.id}`}>
+          <a>Read</a>
+        </Link>
       </div>
     ))}
   </>
