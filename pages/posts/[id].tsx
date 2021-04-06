@@ -14,9 +14,14 @@ const PostPage: React.FC<{ post: TPost }> = ({ post }) => (
         <div className="column is-6">
           <p className="title has-text-centered">{post.title}</p>
           <br />
-          <div className="content" dangerouslySetInnerHTML={{ __html: post.contentHtml }} />
+          <div
+            className="content"
+            dangerouslySetInnerHTML={{ __html: post.contentHtml }}
+          />
           <Divider />
-          <p className="is-italic">Published <DatePlaceholder dateString={post.date} /></p>
+          <p className="is-italic">
+            Published <DatePlaceholder dateString={post.date} />
+          </p>
         </div>
         <div className="column" />
       </div>
@@ -35,7 +40,9 @@ export const getStaticPaths: GetStaticPaths = async () => {
   }
 }
 
-export const getStaticProps: GetStaticProps = async ({ params }): Promise<{ props: { post: TPost } }> => {
+export const getStaticProps: GetStaticProps = async ({
+  params,
+}): Promise<{ props: { post: TPost } }> => {
   const post = await getPostData(params.id as string)
 
   return {

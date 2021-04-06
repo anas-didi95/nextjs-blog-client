@@ -32,7 +32,7 @@ export function getSortedPostsData(): TPost[] {
       id,
       excerpt: matterResult.excerpt,
       ...(matterResult.data as { date: string; title: string }),
-      contentHtml: ""
+      contentHtml: "",
     }
   })
 
@@ -75,6 +75,6 @@ export async function getPostData(id: string): Promise<TPost> {
     id,
     contentHtml,
     ...(matterResult.data as { date: string; title: string }),
-    excerpt: ""
+    excerpt: "",
   }
 }
