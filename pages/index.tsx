@@ -21,7 +21,7 @@ const IndexPage: React.FC<{ posts: TPost[] }> = ({ posts }) => (
         <div className="column">
           <PostList posts={posts} />
         </div>
-        <div className="column is-2" />
+        <div className="column is-1" />
       </div>
     </div>
   </AppLayout>
