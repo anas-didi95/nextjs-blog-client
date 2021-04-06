@@ -4,6 +4,7 @@ import { getAllPostIds, getPostData } from "../../lib/posts"
 import AppLayout from "../../src/layouts/AppLayout"
 import { TPost } from "../../src/utils/types"
 import DatePlaceholder from "../../src/components/DatePlaceholder"
+import Divider from "../../src/components/Divider"
 
 const PostPage: React.FC<{ post: TPost }> = ({ post }) => (
   <AppLayout>
@@ -14,7 +15,7 @@ const PostPage: React.FC<{ post: TPost }> = ({ post }) => (
           <p className="title has-text-centered">{post.title}</p>
           <br />
           <div className="content" dangerouslySetInnerHTML={{ __html: post.contentHtml }} />
-          <div className="divider">~</div>
+          <Divider />
           <p className="is-italic">Published <DatePlaceholder dateString={post.date} /></p>
         </div>
         <div className="column" />

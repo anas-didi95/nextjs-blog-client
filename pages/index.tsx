@@ -5,6 +5,7 @@ import { TPost } from "../src/utils/types"
 import AppLayout from "../src/layouts/AppLayout"
 import Image from "next/image"
 import PostList from "../src/components/PostList"
+import Divider from "../src/components/Divider"
 
 const IndexPage: React.FC<{ posts: TPost[] }> = ({ posts }) => (
   <AppLayout>
@@ -48,10 +49,10 @@ const IndexPage: React.FC<{ posts: TPost[] }> = ({ posts }) => (
             style={{ display: "flex", height: "75vh" }}
             className="is-hidden-mobile">
             <div style={{ flex: 1, height: "75vh" }}></div>
-            <div className="divider is-vertical">~</div>
+            <Divider isVertical isHideMobile />
             <div style={{ flex: 1, height: "75vh" }}></div>
           </div>
-          <div className="divider is-hidden-desktop">~</div>
+          <Divider isHideDesktop />
         </div>
         <div className="column">
           <PostList posts={posts} />
