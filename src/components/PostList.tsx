@@ -17,7 +17,7 @@ const PostList: React.FC<{ posts: TPost[] }> = ({ posts }) => (
           </span>
         </p>
         <Link href={`/posts/${post.id}`}>
-          <a href="#" className="title">
+          <a href="#" className="title postlist-link">
             {post.title}
           </a>
         </Link>
