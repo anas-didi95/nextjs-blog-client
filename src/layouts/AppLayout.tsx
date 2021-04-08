@@ -1,13 +1,9 @@
-import Head from "next/head"
 import React, { ReactNode } from "react"
-import metadata from "../utils/constants/metadata.json"
+import SEO from "../components/SEO"
 
 const AppLayout: React.FC<{ children: ReactNode }> = ({ children }) => (
   <>
-    <Head>
-      <title>{metadata.title}</title>
-      <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-    </Head>
+    <SEO />
     <main className="section">{children}</main>
   </>
 )
