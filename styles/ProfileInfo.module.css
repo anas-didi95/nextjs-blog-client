@@ -1,0 +1,9 @@
+@media screen and (max-width: 768px) {
+  .image {
+    text-align: center !important;
+  }
+
+  .label {
+    text-align: center !important;
+  }
+}
