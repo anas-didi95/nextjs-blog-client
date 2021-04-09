@@ -9,3 +9,13 @@
 .postlist-link:hover {
   text-decoration: underline;
 }
+
+@media screen and (max-width: 768px) {
+  .profileinfo-image {
+    text-align: center !important;
+  }
+
+  .profileinfo-label {
+    text-align: center !important;
+  }
+}

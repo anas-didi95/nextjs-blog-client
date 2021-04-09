@@ -5,7 +5,7 @@ import metadataJson from "../utils/constants/metadata.json"
 const ProfileInfo: React.FC<{}> = () =>
 (
   <>
-    <figure className="image is-128x128 mb-5">
+    <figure className="image mb-4 profileinfo-image">
       <Image
         src="/images/profile-pic.jpg"
         alt="Profile picture"
@@ -14,7 +14,7 @@ const ProfileInfo: React.FC<{}> = () =>
         className="is-rounded"
       />
     </figure>
-    <div className="mb-5">
+    <div className="mb-5 profileinfo-label">
       <p className="title is-4">{metadataJson.fullname}</p>
       <p className="subtitle is-5">{metadataJson.position}</p>
     </div>
