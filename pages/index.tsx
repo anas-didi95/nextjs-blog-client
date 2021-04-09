@@ -3,7 +3,6 @@ import React from "react"
 import { getSortedPostsData } from "../lib/posts"
 import { TPost } from "../src/utils/types"
 import AppLayout from "../src/layouts/AppLayout"
-import Image from "next/image"
 import PostList from "../src/components/PostList"
 import Divider from "../src/components/Divider"
 import ProfileInfo from "../src/components/ProfileInfo"
@@ -12,7 +11,7 @@ const IndexPage: React.FC<{ posts: TPost[] }> = ({ posts }) => (
   <AppLayout>
     <div className="container">
       <div className="columns">
-        <div className="column is-1" />
+        <div className="column is-1 is-hidden-mobile" />
         <div className="column is-3">
           <InfoColumn />
         </div>
