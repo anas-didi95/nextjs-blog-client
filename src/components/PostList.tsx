@@ -2,6 +2,7 @@ import Link from "next/link"
 import React from "react"
 import { TPost } from "../utils/types"
 import DatePlaceholder from "./DatePlaceholder"
+import styles from "../../styles/PostList.module.css"
 
 const PostList: React.FC<{ posts: TPost[] }> = ({ posts }) => (
   <>
@@ -17,7 +18,7 @@ const PostList: React.FC<{ posts: TPost[] }> = ({ posts }) => (
           </span>
         </p>
         <Link href={`/posts/${post.id}`}>
-          <a href="#" className="title postlist-link">
+          <a href="#" className={`title ${styles.link}`}>
             {post.title}
           </a>
         </Link>
