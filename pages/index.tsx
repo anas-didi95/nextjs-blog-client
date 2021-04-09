@@ -6,6 +6,7 @@ import AppLayout from "../src/layouts/AppLayout"
 import Image from "next/image"
 import PostList from "../src/components/PostList"
 import Divider from "../src/components/Divider"
+import ProfileInfo from "../src/components/ProfileInfo"
 
 const IndexPage: React.FC<{ posts: TPost[] }> = ({ posts }) => (
   <AppLayout>
@@ -29,19 +30,7 @@ const IndexPage: React.FC<{ posts: TPost[] }> = ({ posts }) => (
 
 const InfoColumn: React.FC<{}> = () => (
   <>
-    <figure className="image is-128x128 mb-5">
-      <Image
-        src="/images/profile-pic.jpg"
-        alt="Profile picture"
-        width={128}
-        height={128}
-        className="is-rounded"
-      />
-    </figure>
-    <div className="mb-5">
-      <p className="title is-4">Anas Juwaidi Bin Mohd Jeffry</p>
-      <p className="subtitle is-5">Software Engineer</p>
-    </div>
+    <ProfileInfo />
     <aside className="menu">
       <ul className="menu-list">
         <li>
