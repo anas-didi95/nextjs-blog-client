@@ -6,6 +6,7 @@ import AppLayout from "../src/layouts/AppLayout"
 import PostList from "../src/components/PostList"
 import Divider from "../src/components/Divider"
 import ProfileInfo from "../src/components/ProfileInfo"
+import NavMenu from "../src/components/NavMenu"
 
 const IndexPage: React.FC<{ posts: TPost[] }> = ({ posts }) => (
   <AppLayout>
@@ -30,23 +31,7 @@ const IndexPage: React.FC<{ posts: TPost[] }> = ({ posts }) => (
 const InfoColumn: React.FC<{}> = () => (
   <>
     <ProfileInfo />
-    <aside className="menu">
-      <ul className="menu-list">
-        <li>
-          <ul>
-            <li>
-              <a className="is-active">Articles</a>
-            </li>
-            <li>
-              <a>Projects</a>
-            </li>
-            <li>
-              <a>About Me</a>
-            </li>
-          </ul>
-        </li>
-      </ul>
-    </aside>
+    <NavMenu active="articles" />
   </>
 )
 
