@@ -13,7 +13,9 @@ const NavMenu: React.FC<INavMenu> = ({ active }) => (
           {Object.keys(routeJson).map((key) => (
             <li key={key}>
               <Link href={routeJson[key].path}>
-                <a className={`${active === key ? "is-active" : ""}`} href={routeJson[key].path}>
+                <a
+                  className={`${active === key ? "is-active" : ""}`}
+                  href={routeJson[key].path}>
                   {routeJson[key].label}
                 </a>
               </Link>
