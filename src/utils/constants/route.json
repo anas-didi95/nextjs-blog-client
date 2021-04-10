@@ -1,0 +1,14 @@
+{
+  "articles": {
+    "path": "/",
+    "label": "Articles"
+  },
+  "projects": {
+    "path": "/projects",
+    "label": "Projects"
+  },
+  "aboutMe": {
+    "path": "/",
+    "label": "About Me"
+  }
+}

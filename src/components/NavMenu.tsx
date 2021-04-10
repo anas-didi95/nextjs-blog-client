@@ -1,22 +1,19 @@
 import React from "react"
+import routeJson from "../utils/constants/route.json"
 
 interface INavMenu {
-  active: "articles" | "projects" | "about-me"
+  active: "articles" | "projects" | "aboutMe"
 }
 const NavMenu: React.FC<INavMenu> = ({ active }) => (
   <aside className="menu">
     <ul className="menu-list">
       <li>
         <ul>
-          <li>
-            <a className={`${active === "articles" ? "is-active" : ""}`}>Articles</a>
-          </li>
-          <li>
-            <a className={`${active === "projects" ? "is-active" : ""}`}>Projects</a>
-          </li>
-          <li>
-            <a className={`${active === "about-me" ? "is-active" : ""}`}>About Me</a>
-          </li>
+          {Object.keys(routeJson).map(key => (
+            <li key={key}>
+              <a className={`${active === key ? "is-active" : ""}`}>{routeJson[key].label}</a>
+            </li>
+          ))}
         </ul>
       </li>
     </ul>
