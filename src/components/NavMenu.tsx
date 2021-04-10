@@ -9,9 +9,11 @@ const NavMenu: React.FC<INavMenu> = ({ active }) => (
     <ul className="menu-list">
       <li>
         <ul>
-          {Object.keys(routeJson).map(key => (
+          {Object.keys(routeJson).map((key) => (
             <li key={key}>
-              <a className={`${active === key ? "is-active" : ""}`}>{routeJson[key].label}</a>
+              <a className={`${active === key ? "is-active" : ""}`}>
+                {routeJson[key].label}
+              </a>
             </li>
           ))}
         </ul>
