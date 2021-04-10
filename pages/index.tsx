@@ -31,7 +31,7 @@ const IndexPage: React.FC<{ posts: TPost[] }> = ({ posts }) => (
 const InfoColumn: React.FC<{}> = () => (
   <>
     <ProfileInfo />
-    <NavMenu />
+    <NavMenu active="articles" />
   </>
 )
 

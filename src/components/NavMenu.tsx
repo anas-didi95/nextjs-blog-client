@@ -1,18 +1,21 @@
 import React from "react"
 
-const NavMenu: React.FC<{}> = () => (
+interface INavMenu {
+  active: "articles" | "projects" | "about-me"
+}
+const NavMenu: React.FC<INavMenu> = ({ active }) => (
   <aside className="menu">
     <ul className="menu-list">
       <li>
         <ul>
           <li>
-            <a className="is-active">Articles</a>
+            <a className={`${active === "articles" ? "is-active" : ""}`}>Articles</a>
           </li>
           <li>
-            <a>Projects</a>
+            <a className={`${active === "projects" ? "is-active" : ""}`}>Projects</a>
           </li>
           <li>
-            <a>About Me</a>
+            <a className={`${active === "about-me" ? "is-active" : ""}`}>About Me</a>
           </li>
         </ul>
       </li>
