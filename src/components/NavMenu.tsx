@@ -1,3 +1,4 @@
+import Link from "next/link"
 import React from "react"
 import routeJson from "../utils/constants/route.json"
 
@@ -11,9 +12,11 @@ const NavMenu: React.FC<INavMenu> = ({ active }) => (
         <ul>
           {Object.keys(routeJson).map((key) => (
             <li key={key}>
-              <a className={`${active === key ? "is-active" : ""}`}>
-                {routeJson[key].label}
-              </a>
+              <Link href={routeJson[key].path}>
+                <a className={`${active === key ? "is-active" : ""}`} href={routeJson[key].path}>
+                  {routeJson[key].label}
+                </a>
+              </Link>
             </li>
           ))}
         </ul>
