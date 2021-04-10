@@ -8,7 +8,7 @@
     "label": "Projects"
   },
   "aboutMe": {
-    "path": "/",
+    "path": "/about-me",
     "label": "About Me"
   }
 }
