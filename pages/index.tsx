@@ -7,6 +7,8 @@ import PostList from "../src/components/PostList"
 import Divider from "../src/components/Divider"
 import ProfileInfo from "../src/components/ProfileInfo"
 import NavMenu from "../src/components/NavMenu"
+import { ImGithub, ImLinkedin2, ImMail } from "react-icons/im"
+import { IoMail, IoLogoLinkedin, IoLogoGithub } from "react-icons/io5"
 
 const IndexPage: React.FC<{ posts: TPost[] }> = ({ posts }) => (
   <AppLayout>
@@ -32,6 +34,12 @@ const InfoColumn: React.FC<{}> = () => (
   <>
     <ProfileInfo />
     <NavMenu active="articles" />
+    <br />
+    <div className="buttons">
+      <a className="button is-light is-outlined is-inverted is-rounded is-size-6 p-3" href="https://github.com"><IoLogoGithub /></a>
+      <a className="button is-light is-outlined is-inverted is-rounded is-size-6 p-3" href="https://github.com"><IoLogoLinkedin /></a>
+      <a className="button is-light is-outlined is-inverted is-rounded is-size-6 p-3" href="https://github.com"><IoMail /></a>
+    </div>
   </>
 )
 
