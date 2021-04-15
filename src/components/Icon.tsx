@@ -6,11 +6,13 @@ interface IIcon {
 }
 const Icon: React.FC<IIcon> = ({ type }) => (
   <>
-    {{
-      "email": <IoMail />,
-      "linkedin": <IoLogoLinkedin />,
-      "github": <IoLogoGithub />
-    }[type]}
+    {
+      {
+        email: <IoMail />,
+        linkedin: <IoLogoLinkedin />,
+        github: <IoLogoGithub />,
+      }[type]
+    }
   </>
 )
 
