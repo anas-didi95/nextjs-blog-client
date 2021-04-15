@@ -1,9 +1,10 @@
 import React, { ReactNode } from "react"
 import Icon from "./Icon"
 import metadataJson from "../utils/constants/metadata.json"
+import styles from "../../styles/SocialLink.module.css"
 
 const SocialLink: React.FC<{}> = () => (
-  <div className="buttons">
+  <div className={`buttons ${styles.buttons}`}>
     <_Link href={`mailto:${metadataJson.social.email}`}><Icon type="email" /></_Link>
     <_Link href={metadataJson.social.linkedin}><Icon type="linkedin" /></_Link>
     <_Link href={metadataJson.social.github}><Icon type="github" /></_Link>
