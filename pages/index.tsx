@@ -7,6 +7,7 @@ import PostList from "../src/components/PostList"
 import Divider from "../src/components/Divider"
 import ProfileInfo from "../src/components/ProfileInfo"
 import NavMenu from "../src/components/NavMenu"
+import SocialLink from "../src/components/SocialLink"
 
 const IndexPage: React.FC<{ posts: TPost[] }> = ({ posts }) => (
   <AppLayout>
@@ -32,6 +33,8 @@ const InfoColumn: React.FC<{}> = () => (
   <>
     <ProfileInfo />
     <NavMenu active="articles" />
+    <br />
+    <SocialLink />
   </>
 )
 
