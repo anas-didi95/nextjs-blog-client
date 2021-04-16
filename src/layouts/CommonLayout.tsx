@@ -1,10 +1,10 @@
-import React from "react"
+import React, { ReactNode } from "react"
 import Divider from "../components/Divider"
 import NavMenu from "../components/NavMenu"
 import ProfileInfo from "../components/ProfileInfo"
 import SocialLink from "../components/SocialLink"
 
-const CommonLayout: React.FC<{}> = () => (
+const CommonLayout: React.FC<{ children: ReactNode }> = ({ children }) => (
   <div className="container">
     <div className="columns">
       <div className="column is-1 is-hidden-mobile" />
@@ -15,6 +15,7 @@ const CommonLayout: React.FC<{}> = () => (
         <_DividerColumn />
       </div>
       <div className="column">
+        {children}
       </div>
       <div className="column is-1" />
     </div>
