@@ -5,7 +5,10 @@ import ProfileInfo from "../components/ProfileInfo"
 import SocialLink from "../components/SocialLink"
 import { TNavMenu } from "../utils/types"
 
-const CommonLayout: React.FC<{ children: ReactNode, active: TNavMenu }> = ({ children, active }) => (
+const CommonLayout: React.FC<{ children: ReactNode; active: TNavMenu }> = ({
+  children,
+  active,
+}) => (
   <div className="container">
     <div className="columns">
       <div className="column is-1 is-hidden-mobile" />
@@ -15,9 +18,7 @@ const CommonLayout: React.FC<{ children: ReactNode, active: TNavMenu }> = ({ chi
       <div className="column is-1">
         <_DividerColumn />
       </div>
-      <div className="column">
-        {children}
-      </div>
+      <div className="column">{children}</div>
       <div className="column is-1" />
     </div>
   </div>
