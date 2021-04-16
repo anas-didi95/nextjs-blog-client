@@ -3,13 +3,14 @@ import Divider from "../components/Divider"
 import NavMenu from "../components/NavMenu"
 import ProfileInfo from "../components/ProfileInfo"
 import SocialLink from "../components/SocialLink"
+import { TNavMenu } from "../utils/types"
 
-const CommonLayout: React.FC<{ children: ReactNode }> = ({ children }) => (
+const CommonLayout: React.FC<{ children: ReactNode, active: TNavMenu }> = ({ children, active }) => (
   <div className="container">
     <div className="columns">
       <div className="column is-1 is-hidden-mobile" />
       <div className="column is-3">
-        <_InfoColumn />
+        <_InfoColumn active={active} />
       </div>
       <div className="column is-1">
         <_DividerColumn />
@@ -22,10 +23,10 @@ const CommonLayout: React.FC<{ children: ReactNode }> = ({ children }) => (
   </div>
 )
 
-const _InfoColumn: React.FC<{}> = () => (
+const _InfoColumn: React.FC<{ active: TNavMenu }> = ({ active }) => (
   <>
     <ProfileInfo />
-    <NavMenu active="articles" />
+    <NavMenu active={active} />
     <br />
     <SocialLink />
   </>

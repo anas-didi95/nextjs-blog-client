@@ -8,13 +8,11 @@ import PostList from "../src/components/PostList"
 
 const IndexPage: React.FC<{ posts: TPost[] }> = ({ posts }) => (
   <AppLayout>
-    <CommonLayout>
+    <CommonLayout active="articles">
       <PostList posts={posts} />
     </CommonLayout>
   </AppLayout>
 )
-
-
 
 export default IndexPage
 
