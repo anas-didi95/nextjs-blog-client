@@ -8,24 +8,11 @@ import Divider from "../src/components/Divider"
 import ProfileInfo from "../src/components/ProfileInfo"
 import NavMenu from "../src/components/NavMenu"
 import SocialLink from "../src/components/SocialLink"
+import CommonLayout from "../src/layouts/CommonLayout"
 
 const IndexPage: React.FC<{ posts: TPost[] }> = ({ posts }) => (
   <AppLayout>
-    <div className="container">
-      <div className="columns">
-        <div className="column is-1 is-hidden-mobile" />
-        <div className="column is-3">
-          <InfoColumn />
-        </div>
-        <div className="column is-1">
-          <DividerColumn />
-        </div>
-        <div className="column">
-          <PostList posts={posts} />
-        </div>
-        <div className="column is-1" />
-      </div>
-    </div>
+    <CommonLayout></CommonLayout>
   </AppLayout>
 )
 
