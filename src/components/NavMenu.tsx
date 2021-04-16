@@ -1,9 +1,10 @@
 import Link from "next/link"
 import React from "react"
 import routeJson from "../utils/constants/route.json"
+import { TNavMenu } from "../utils/types"
 
 interface INavMenu {
-  active: "articles" | "projects" | "aboutMe"
+  active: TNavMenu
 }
 const NavMenu: React.FC<INavMenu> = ({ active }) => (
   <aside className="menu">
