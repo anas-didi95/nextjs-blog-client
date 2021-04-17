@@ -13,7 +13,9 @@ const ProjectsPage: React.FC<{}> = () => (
               <div className="media">
                 <div className="media-content">
                   <p className="has-text-weight-bold is-size-4">NextJS Blog</p>
-                  <a className="has-text-weight-semibold">https://github.com/anas-didi95/nextjs-blog-client</a>
+                  <a className="has-text-weight-semibold">
+                    https://github.com/anas-didi95/nextjs-blog-client
+                  </a>
                 </div>
               </div>
               <div className="content">
@@ -31,8 +33,12 @@ const ProjectsPage: React.FC<{}> = () => (
             <div className="card-content">
               <div className="media">
                 <div className="media-content">
-                  <p className="has-text-weight-bold is-size-4">NextJS Dashboard</p>
-                  <a className="has-text-weight-semibold">https://github.com/anas-didi95/nextjs-dashboard-client</a>
+                  <p className="has-text-weight-bold is-size-4">
+                    NextJS Dashboard
+                  </p>
+                  <a className="has-text-weight-semibold">
+                    https://github.com/anas-didi95/nextjs-dashboard-client
+                  </a>
                 </div>
               </div>
               <div className="content">
@@ -50,8 +56,12 @@ const ProjectsPage: React.FC<{}> = () => (
             <div className="card-content">
               <div className="media">
                 <div className="media-content">
-                  <p className="has-text-weight-bold is-size-4">Security Microservice</p>
-                  <a className="has-text-weight-semibold">https://github.com/anas-didi95/vertx-security-server</a>
+                  <p className="has-text-weight-bold is-size-4">
+                    Security Microservice
+                  </p>
+                  <a className="has-text-weight-semibold">
+                    https://github.com/anas-didi95/vertx-security-server
+                  </a>
                 </div>
               </div>
               <div className="content">
