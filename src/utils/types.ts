@@ -1,11 +1,3 @@
-export type TPost = {
-  id: string
-  date: string
-  title: string
-  excerpt: string
-  contentHtml: string
-}
-
 export type TArticle = {
   id: string
   date: string

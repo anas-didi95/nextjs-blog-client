@@ -1,7 +1,7 @@
 import { GetStaticPaths, GetStaticProps } from "next"
 import React from "react"
 import AppLayout from "../../src/layouts/AppLayout"
-import { TArticle, TPost } from "../../src/utils/types"
+import { TArticle } from "../../src/utils/types"
 import DatePlaceholder from "../../src/components/DatePlaceholder"
 import Divider from "../../src/components/Divider"
 import { getAllArticlesIds, getArticleData } from "../../lib/articles"
