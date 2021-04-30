@@ -2,6 +2,9 @@ import React from "react"
 import AppLayout from "../src/layouts/AppLayout"
 import CommonLayout from "../src/layouts/CommonLayout"
 import Image from "next/image"
+import { GetStaticProps } from "next"
+import { TPost } from "../src/utils/types"
+import { getSortedArticlesData } from "../lib/articles"
 
 const ProjectsPage: React.FC<{}> = () => (
   <AppLayout>
@@ -80,3 +83,16 @@ const ProjectsPage: React.FC<{}> = () => (
 )
 
 export default ProjectsPage
+
+export const getStaticProps: GetStaticProps = async (): Promise<{
+  props: { posts: TPost[] }
+}> => {
+  const posts = getSortedArticlesData()
+  console.log("[getStaticProps] posts", posts)
+
+  return {
+    props: {
+      posts,
+    },
+  }
+}
