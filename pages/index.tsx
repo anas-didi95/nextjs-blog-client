@@ -1,15 +1,15 @@
 import { GetStaticProps } from "next"
 import React from "react"
-import { getSortedPostsData } from "../lib/posts"
-import { TPost } from "../src/utils/types"
+import { TArticle } from "../src/utils/types"
 import AppLayout from "../src/layouts/AppLayout"
 import CommonLayout from "../src/layouts/CommonLayout"
-import PostList from "../src/components/PostList"
+import ArticleList from "../src/components/ArticleList"
+import { getSortedArticlesData } from "../lib/articles"
 
-const IndexPage: React.FC<{ posts: TPost[] }> = ({ posts }) => (
+const IndexPage: React.FC<{ articles: TArticle[] }> = ({ articles }) => (
   <AppLayout>
     <CommonLayout active="articles">
-      <PostList posts={posts} />
+      <ArticleList articles={articles} />
     </CommonLayout>
   </AppLayout>
 )
@@ -17,13 +17,13 @@ const IndexPage: React.FC<{ posts: TPost[] }> = ({ posts }) => (
 export default IndexPage
 
 export const getStaticProps: GetStaticProps = async (): Promise<{
-  props: { posts: TPost[] }
+  props: { articles: TArticle[] }
 }> => {
-  const posts = getSortedPostsData()
+  const articles = getSortedArticlesData()
 
   return {
     props: {
-      posts,
+      articles,
     },
   }
 }

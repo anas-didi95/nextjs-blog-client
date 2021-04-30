@@ -3,7 +3,7 @@ import path from "path"
 import matter from "gray-matter"
 import remark from "remark"
 import html from "remark-html"
-import { TPost } from "../src/utils/types"
+import { TArticle } from "../src/utils/types"
 
 const articlesDirectory = path.join(process.cwd(), "content/articles")
 
@@ -13,14 +13,11 @@ function getExcerpt(file, options) {
   return excerpt.trim()
 }
 
-export function getSortedArticlesData(): TPost[] {
+export function getSortedArticlesData(): TArticle[] {
   // Get folder names under content/articles
   const folderNames = fs.readdirSync(articlesDirectory)
 
   const allPostsData = folderNames.map((folderName) => {
-    // Remove ".md" from file name to get id
-    const id = folderName.replace(/\.md$/, "")
-
     // Read markdown file as string
     const fullPath = path.join(articlesDirectory, folderName, "index.md")
     const fileContents = fs.readFileSync(fullPath, "utf8")
@@ -30,7 +27,7 @@ export function getSortedArticlesData(): TPost[] {
 
     // Combine the data with the id
     return {
-      id,
+      id: folderName,
       excerpt: matterResult.excerpt,
       ...(matterResult.data as { date: string; title: string }),
       contentHtml: "",
@@ -58,7 +55,7 @@ export function getAllPostIds() {
   })
 }
 
-export async function getPostData(id: string): Promise<TPost> {
+export async function getPostData(id: string): Promise<TArticle> {
   const fullPath = path.join(articlesDirectory, `${id}.md`)
   const fileContents = fs.readFileSync(fullPath, "utf8")
 
