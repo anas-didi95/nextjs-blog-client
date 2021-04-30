@@ -17,13 +17,13 @@ const ArticleList: React.FC<{ articles: TArticle[] }> = ({ articles }) => (
             TYPOGRAPGY
           </span>
         </p>
-        <Link href={`/posts/${article.id}`}>
+        <Link href={`/articles/${article.id}`}>
           <a href="#" className={`title ${styles.link}`}>
             {article.title}
           </a>
         </Link>
         <p className="mt-4 mb-3">{article.excerpt}</p>
-        <Link href={`/posts/${article.id}`}>
+        <Link href={`/articles/${article.id}`}>
           <a>Read</a>
         </Link>
       </div>

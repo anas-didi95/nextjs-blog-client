@@ -1,26 +1,26 @@
 import { GetStaticPaths, GetStaticProps } from "next"
 import React from "react"
-import { getAllPostIds, getPostData } from "../../lib/posts"
 import AppLayout from "../../src/layouts/AppLayout"
-import { TPost } from "../../src/utils/types"
+import { TArticle, TPost } from "../../src/utils/types"
 import DatePlaceholder from "../../src/components/DatePlaceholder"
 import Divider from "../../src/components/Divider"
+import { getAllArticlesIds, getArticleData } from "../../lib/articles"
 
-const PostPage: React.FC<{ post: TPost }> = ({ post }) => (
+const PostPage: React.FC<{ article: TArticle }> = ({ article }) => (
   <AppLayout>
     <div className="container">
       <div className="columns">
         <div className="column" />
         <div className="column is-6">
-          <p className="title has-text-centered">{post.title}</p>
+          <p className="title has-text-centered">{article.title}</p>
           <br />
           <div
             className="content"
-            dangerouslySetInnerHTML={{ __html: post.contentHtml }}
+            dangerouslySetInnerHTML={{ __html: article.contentHtml }}
           />
           <Divider />
           <p className="is-italic">
-            Published <DatePlaceholder dateString={post.date} />
+            Published <DatePlaceholder dateString={article.date} />
           </p>
         </div>
         <div className="column" />
@@ -32,7 +32,7 @@ const PostPage: React.FC<{ post: TPost }> = ({ post }) => (
 export default PostPage
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const paths = getAllPostIds()
+  const paths = getAllArticlesIds()
 
   return {
     paths,
@@ -42,12 +42,12 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export const getStaticProps: GetStaticProps = async ({
   params,
-}): Promise<{ props: { post: TPost } }> => {
-  const post = await getPostData(params.id as string)
+}): Promise<{ props: { article: TArticle } }> => {
+  const article = await getArticleData(params.id as string)
 
   return {
     props: {
-      post,
+      article,
     },
   }
 }

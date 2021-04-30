@@ -44,19 +44,19 @@ export function getSortedArticlesData(): TArticle[] {
   })
 }
 
-export function getAllPostIds() {
-  const fileNames = fs.readdirSync(articlesDirectory)
-  return fileNames.map((fileName) => {
+export function getAllArticlesIds() {
+  const folderNames = fs.readdirSync(articlesDirectory)
+  return folderNames.map((folderName) => {
     return {
       params: {
-        id: fileName.replace(/\.md$/, ""),
+        id: folderName
       },
     }
   })
 }
 
-export async function getPostData(id: string): Promise<TArticle> {
-  const fullPath = path.join(articlesDirectory, `${id}.md`)
+export async function getArticleData(id: string): Promise<TArticle> {
+  const fullPath = path.join(articlesDirectory, id, "index.md")
   const fileContents = fs.readFileSync(fullPath, "utf8")
 
   // Use gray-matter to parse the post metadata section
