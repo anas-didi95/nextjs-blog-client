@@ -3,25 +3,23 @@ import path from "path"
 import matter from "gray-matter"
 import remark from "remark"
 import html from "remark-html"
-import { TPost } from "../src/utils/types"
+import { TArticle } from "../src/utils/types"
 
-const postsDirectory = path.join(process.cwd(), "posts")
+const articlesDirectory = path.join(process.cwd(), "content/articles")
 
 function getExcerpt(file, options) {
   let excerpt: string = file.content.split("\n").slice(0, 2).join(" ")
   file.excerpt = excerpt.split(" ").slice(0, 30).join(" ") + "..."
-  return excerpt
+  return excerpt.trim()
 }
 
-export function getSortedPostsData(): TPost[] {
-  // Get file names under /posts
-  const fileNames = fs.readdirSync(postsDirectory)
-  const allPostsData = fileNames.map((fileName) => {
-    // Remove ".md" from file name to get id
-    const id = fileName.replace(/\.md$/, "")
+export function getSortedArticlesData(): TArticle[] {
+  // Get folder names under content/articles
+  const folderNames = fs.readdirSync(articlesDirectory)
 
+  const allPostsData = folderNames.map((folderName) => {
     // Read markdown file as string
-    const fullPath = path.join(postsDirectory, fileName)
+    const fullPath = path.join(articlesDirectory, folderName, "index.md")
     const fileContents = fs.readFileSync(fullPath, "utf8")
 
     // Use gray-matter to parse the post metadata section
@@ -29,7 +27,7 @@ export function getSortedPostsData(): TPost[] {
 
     // Combine the data with the id
     return {
-      id,
+      id: folderName,
       excerpt: matterResult.excerpt,
       ...(matterResult.data as { date: string; title: string }),
       contentHtml: "",
@@ -46,19 +44,19 @@ export function getSortedPostsData(): TPost[] {
   })
 }
 
-export function getAllPostIds() {
-  const fileNames = fs.readdirSync(postsDirectory)
-  return fileNames.map((fileName) => {
+export function getAllArticlesIds() {
+  const folderNames = fs.readdirSync(articlesDirectory)
+  return folderNames.map((folderName) => {
     return {
       params: {
-        id: fileName.replace(/\.md$/, ""),
+        id: folderName
       },
     }
   })
 }
 
-export async function getPostData(id: string): Promise<TPost> {
-  const fullPath = path.join(postsDirectory, `${id}.md`)
+export async function getArticleData(id: string): Promise<TArticle> {
+  const fullPath = path.join(articlesDirectory, id, "index.md")
   const fileContents = fs.readFileSync(fullPath, "utf8")
 
   // Use gray-matter to parse the post metadata section

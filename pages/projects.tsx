@@ -1,7 +1,6 @@
 import React from "react"
 import AppLayout from "../src/layouts/AppLayout"
 import CommonLayout from "../src/layouts/CommonLayout"
-import Image from "next/image"
 
 const ProjectsPage: React.FC<{}> = () => (
   <AppLayout>

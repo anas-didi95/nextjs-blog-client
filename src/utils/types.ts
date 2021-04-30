@@ -1,4 +1,4 @@
-export type TPost = {
+export type TArticle = {
   id: string
   date: string
   title: string
